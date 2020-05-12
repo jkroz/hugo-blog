@@ -29,7 +29,7 @@ jobs:
           npm install postcss-cli autoprefixer
       - name: 🤵 Install Hugo version
         run: |
-          HUGO_VERSION=0.70.0
+          HUGO_VERSION="0.70.0"
           mkdir tmp/ && cd tmp/
           curl -sSL https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_${HUGO_VERSION: -6}_Linux-64bit.tar.gz | tar -xvzf-
           sudo mv hugo /usr/local/bin/
