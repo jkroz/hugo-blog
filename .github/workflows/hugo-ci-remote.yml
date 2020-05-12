@@ -8,7 +8,7 @@ on:
 # Don't forget to set these!
 env:
   REMOTE: jkroz/hugo-blog.git
-  DEST: public_temp
+  DEST: public
 
 jobs:
   build-and-deploy:
@@ -32,11 +32,11 @@ jobs:
           hugo version
       - name: 👯 Clone remote repository
         run: git clone https://github.com/${REMOTE} ${DEST}
-#      - name: 🧹 Clean site
-#        run: |
-#          if [ -d "${DEST}" ]; then
-#            rm -rf ${DEST}/*
-#          fi
+      - name: 🧹 Clean site
+        run: |
+          if [ -d "${DEST}" ]; then
+            rm -rf ${DEST}/*
+          fi
       - name: 🍳 Build site
         run: hugo -d ${DEST}
       - name: 🚀 Publish to remote repository
