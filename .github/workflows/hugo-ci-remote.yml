@@ -30,13 +30,13 @@ jobs:
           sudo mv hugo /usr/local/bin/
           cd .. && rm -rf tmp/
           hugo version
-      - name: 👯 Clone remote repository
-        run: git clone https://github.com/${REMOTE} ${DEST}
       - name: 🧹 Clean site
         run: |
           if [ -d "${DEST}" ]; then
             rm -rf ${DEST}/*
           fi
+      - name: 👯 Clone remote repository
+        run: git clone https://github.com/${REMOTE} ${DEST}
       - name: 🍳 Build site
         run: hugo -d ${DEST}
       - name: 🚀 Publish to remote repository
