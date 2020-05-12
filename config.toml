@@ -1,6 +1,6 @@
 baseURL = "http://d31zq8bi6got13.cloudfront.net"
 languageCode = "en-us"
-title = "My IMS Site"
+title = "My IMS Site GITHUB ACTION"
 # theme = "ananke"
 # Change the default theme to be use when building the site with Hugo
 theme = "learn"
