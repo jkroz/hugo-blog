@@ -19,14 +19,9 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - name: 🔨 Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
       - name: 🔧 Install tools
         run: |
           sudo apt install curl jq awscli
-          npm install postcss-cli autoprefixer
       - name: 🤵 Install Hugo version
         run: |
           HUGO_VERSION="0.70.0"
@@ -50,7 +45,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           REGION: ${{ secrets.AWS_REGION }}
         run: |
-          aws --version
-          aws sts get-caller-identity
           hugo deploy --invalidateCDN --maxDeletes -1
           
