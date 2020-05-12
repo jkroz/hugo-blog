@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/basics/</loc>
+    <lastmod>2020-05-12T11:35:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/</loc>
+    <lastmod>2020-05-12T11:37:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/basics/second-content/</loc>
+    <lastmod>2020-05-12T11:37:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/basics/first-content/</loc>
+    <lastmod>2020-05-12T11:35:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/posts/my-second-post/</loc>
+    <lastmod>2020-05-11T13:08:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/posts/my-first-post/</loc>
+    <lastmod>2020-05-11T12:19:12+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/posts/</loc>
+    <lastmod>2017-03-02T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://d31zq8bi6got13.cloudfront.net/tags/</loc>
+  </url>
+  
+</urlset>
