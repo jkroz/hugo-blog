@@ -32,17 +32,17 @@ jobs:
           hugo version
       - name: 👯 Clone remote repository
         run: git clone https://github.com/${REMOTE} ${DEST}
-      - name: 🧹 Clean site
-        run: |
-          if [ -d "${DEST}" ]; then
-            rm -rf ${DEST}/*
-          fi
-      - name: 🍳 Build site
-        run: hugo -d ${DEST}
+#      - name: 🧹 Clean site
+#        run: |
+#          if [ -d "${DEST}" ]; then
+#            rm -rf ${DEST}/*
+#          fi
+#      - name: 🍳 Build site
+#        run: hugo -d ${DEST}
       - name: 🚀 Publish to remote repository
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           REGION: ${{ secrets.AWS_REGION }}
         run: |
-          hugo deploy --invalidateCDN --maxDeletes -1
+          hugo deploy --invalidateCDN --maxDeletes -1 --force
