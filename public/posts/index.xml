@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on My IMS Site</title>
+    <link>http://d31zq8bi6got13.cloudfront.net/posts/</link>
+    <description>Recent content in Articles on My IMS Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://d31zq8bi6got13.cloudfront.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Second Post</title>
+      <link>http://d31zq8bi6got13.cloudfront.net/posts/my-second-post/</link>
+      <pubDate>Mon, 11 May 2020 13:08:13 +0200</pubDate>
+      
+      <guid>http://d31zq8bi6got13.cloudfront.net/posts/my-second-post/</guid>
+      <description>Second.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>http://d31zq8bi6got13.cloudfront.net/posts/my-first-post/</link>
+      <pubDate>Mon, 11 May 2020 12:19:12 +0200</pubDate>
+      
+      <guid>http://d31zq8bi6got13.cloudfront.net/posts/my-first-post/</guid>
+      <description>True or Not ? Question 1/</description>
+    </item>
+    
+  </channel>
+</rss>

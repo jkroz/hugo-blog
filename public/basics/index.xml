@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on My IMS Site</title>
+    <link>http://d31zq8bi6got13.cloudfront.net/basics/</link>
+    <description>Recent content in Basics on My IMS Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 May 2020 11:35:08 +0200</lastBuildDate>
+    
+	<atom:link href="http://d31zq8bi6got13.cloudfront.net/basics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Content</title>
+      <link>http://d31zq8bi6got13.cloudfront.net/basics/first-content/</link>
+      <pubDate>Tue, 12 May 2020 11:35:54 +0200</pubDate>
+      
+      <guid>http://d31zq8bi6got13.cloudfront.net/basics/first-content/</guid>
+      <description>HIHIAHA</description>
+    </item>
+    
+  </channel>
+</rss>

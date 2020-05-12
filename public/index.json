@@ -1,0 +1,64 @@
+[
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/basics/",
+	"title": "Basics",
+	"tags": [],
+	"description": "",
+	"content": "Chapter X Some Chapter title Lorem Ipsum.\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/",
+	"title": "AWS AMPLIFY - IMS POWA",
+	"tags": [],
+	"description": "The last but not the least. Maybe.",
+	"content": "Welcome to my IMS blog with some of my work in progress. You can read some of the chapters below.\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/basics/second-content/",
+	"title": "Second Content DOC",
+	"tags": [],
+	"description": "",
+	"content": "TESTSET/SETSET\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/basics/first-content/",
+	"title": "First Content",
+	"tags": [],
+	"description": "",
+	"content": "HIHIAHA\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/posts/my-second-post/",
+	"title": "My Second Post",
+	"tags": [],
+	"description": "",
+	"content": "Second.\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/posts/my-first-post/",
+	"title": "My First Post",
+	"tags": [],
+	"description": "",
+	"content": "True or Not ? Question 1/\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/posts/",
+	"title": "Articles",
+	"tags": [],
+	"description": "",
+	"content": "Articles are paginated with only three posts here for example. You can set the number of entries to show on this page with the \u0026ldquo;pagination\u0026rdquo; setting in the config file.\n"
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://d31zq8bi6got13.cloudfront.net/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
