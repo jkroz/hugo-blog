@@ -46,8 +46,11 @@ jobs:
         run: hugo -d ${DEST}
       - name: 🚀 Publish to remote repository
         env:
-          AK: ${{ secrets.AK }}
-          SK: ${{ secrets.SK }} 
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          REGION: ${{ secrets.AWS_REGION }}
         run: |
+          aws --version
+          aws sts get-caller-identity
           hugo deploy --invalidateCDN --maxDeletes -1
           
