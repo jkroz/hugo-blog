@@ -117,8 +117,20 @@ resource "aws_s3_bucket_policy" "update_website_root_bucket_policy" {
         "${aws_s3_bucket.website_root.arn}/*",
         "${aws_s3_bucket.website_root.arn}"
       ]
-    }
-  ]
+    },
+    {
+			"Sid": "PermissionForObjectOperations",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::448878779811:user/jsstest"
+			},
+			"Action": "s3:*Object",
+			"Resource": [
+				"${aws_s3_bucket.website_root.arn}/*",
+				"${aws_s3_bucket.website_root.arn}"
+			]
+		}
+	]
 }
 POLICY
 }
