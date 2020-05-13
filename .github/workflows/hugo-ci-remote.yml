@@ -8,7 +8,7 @@ on:
 # Don't forget to set these!
 env:
   REMOTE: jkroz/hugo-blog.git
-  DEST: public
+  DEST: public-temp
 
 jobs:
   build-and-deploy:
