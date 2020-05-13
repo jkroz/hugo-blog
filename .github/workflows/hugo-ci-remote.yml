@@ -46,10 +46,11 @@ jobs:
         run: git clone https://github.com/${REMOTE} ${DEST}
       - name: 🍳 Build site
         run: |
+          cd ${DEST} && git submodule update --init --recursive && cd ..
           mkdir ${DEST_BUILD}
           hugo new site ${DEST_BUILD}
           cp -r ${DEST}/* ${DEST_BUILD}/
           cd ${DEST_BUILD} && ls -al
-          hugo && ls public
+          hugo && ls public/basics
       - name: 🚀 Publish to remote repository
         run: cd ${DEST_BUILD} && hugo deploy --invalidateCDN --maxDeletes -1 --force
