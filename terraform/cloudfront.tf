@@ -8,14 +8,14 @@ resource "aws_cloudfront_origin_access_identity" "origin_access_identity_website
 resource "aws_cloudfront_distribution" "website_cdn_root" {
   enabled     = true
   price_class = "PriceClass_All" # Select the correct PriceClass depending on who the CDN is supposed to serve (https://docs.aws.amazon.com/AmazonCloudFront/ladev/DeveloperGuide/PriceClass.html)
-  aliases     = [var.website-domain-main]
+	#aliases     = [var.website-domain-main]
 
   origin {
     origin_id   = "origin-bucket-${aws_s3_bucket.website_root.id}"
     domain_name = aws_s3_bucket.website_root.bucket_regional_domain_name
 
     s3_origin_config {
-      origin_access_identity = aws_cloudfront_origin_access_identity.origin_access_identity_website.cloudfront_access_identity_path
+			origin_access_identity = aws_cloudfront_origin_access_identity.origin_access_identity_website.cloudfront_access_identity_path
     }
   }
 
@@ -57,7 +57,7 @@ resource "aws_cloudfront_distribution" "website_cdn_root" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
+		#jordan acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
     ssl_support_method  = "sni-only"
   }
 
@@ -82,17 +82,17 @@ resource "aws_cloudfront_distribution" "website_cdn_root" {
 }
 
 # Creates the DNS record to point on the main CloudFront distribution ID
-resource "aws_route53_record" "website_cdn_root_record" {
-  zone_id = data.aws_route53_zone.main.zone_id
-  name    = var.website-domain-main
-  type    = "A"
-
-  alias {
-    name                   = aws_cloudfront_distribution.website_cdn_root.domain_name
-    zone_id                = aws_cloudfront_distribution.website_cdn_root.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
+#resource "aws_route53_record" "website_cdn_root_record" {
+#  zone_id = data.aws_route53_zone.main.zone_id
+#  name    = var.website-domain-main
+#  type    = "A"
+#
+#  alias {
+#    name                   = aws_cloudfront_distribution.website_cdn_root.domain_name
+#    zone_id                = aws_cloudfront_distribution.website_cdn_root.hosted_zone_id
+#    evaluate_target_health = false
+#  }
+#}
 
 # Creates policy to limit access to the S3 bucket to CloudFront Origin
 resource "aws_s3_bucket_policy" "update_website_root_bucket_policy" {
@@ -183,7 +183,7 @@ resource "aws_cloudfront_distribution" "website_cdn_redirect" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
+		# jordan acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
     ssl_support_method  = "sni-only"
   }
 
@@ -202,14 +202,14 @@ resource "aws_cloudfront_distribution" "website_cdn_redirect" {
 
 
 # Creates the DNS record to point on the CloudFront distribution ID that handles the redirection website
-resource "aws_route53_record" "website_cdn_redirect_record" {
-  zone_id = data.aws_route53_zone.main.zone_id
-  name    = var.website-domain-redirect
-  type    = "A"
-
-  alias {
-    name                   = aws_cloudfront_distribution.website_cdn_redirect.domain_name
-    zone_id                = aws_cloudfront_distribution.website_cdn_redirect.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
+#resource "aws_route53_record" "website_cdn_redirect_record" {
+#  zone_id = data.aws_route53_zone.main.zone_id
+#  name    = var.website-domain-redirect
+#  type    = "A"
+#
+#  alias {
+#    name                   = aws_cloudfront_distribution.website_cdn_redirect.domain_name
+#    zone_id                = aws_cloudfront_distribution.website_cdn_redirect.hosted_zone_id
+#    evaluate_target_health = false
+#  }
+#}

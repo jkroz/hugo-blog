@@ -7,12 +7,12 @@ resource "aws_iam_user" "jsstest" {
 }
 
 resource "aws_iam_access_key" "jsstest" {
-  user = "${aws_iam_user.jsstest.name}"
+  user = aws_iam_user.jsstest.name
 }
 
 resource "aws_iam_user_policy" "jsstest_ci" {
   name = "${aws_iam_user.jsstest.name}-allow-cdn-invalidate"
-  user = "${aws_iam_user.jsstest.name}"
+  user = aws_iam_user.jsstest.name
 
   policy = <<EOF
 {

@@ -42,7 +42,7 @@ data "archive_file" "cloudfront_folder_index_redirect_code" {
 
 # Creates the Lambda Function
 resource "aws_lambda_function" "website_lambda_redirect_folder_index" {
-  provider         = aws.us-east-1 # Lambda@Edge invoked by CloudFront must reside in us-east-1
+	provider         = aws.virginia # Lambda@Edge invoked by CloudFront must reside in us-east-1
   function_name    = "cloudfront-folder-index-redirect"
   description      = "Implements Default Directory Indexes in Amazon S3-backed Amazon CloudFront Origins"
   handler          = "cloudfront_folder_index_redirect.handler"
