@@ -53,4 +53,4 @@ jobs:
           cd ${DEST_BUILD} && ls -al
           hugo && ls public/basics
       - name: 🚀 Publish to remote repository
-        run: cd ${DEST_BUILD} && hugo deploy --invalidateCDN --maxDeletes -1 --force
+        run: cd ${DEST_BUILD} && hugo deploy --invalidateCDN --maxDeletes -1
