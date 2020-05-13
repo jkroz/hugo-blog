@@ -40,7 +40,7 @@ jobs:
             rm -rf ${DEST}/*
           fi
           if [ -d "${DEST_BUILD}" ]; then
-            rm -rf ${DEST_BUILD}/*
+            rm -rf ${DEST_BUILD}
           fi
       - name: 👯 Clone remote repository
         run: git clone https://github.com/${REMOTE} ${DEST}
@@ -49,7 +49,7 @@ jobs:
           mkdir ${DEST_BUILD}
           hugo new site ${DEST_BUILD}
           cp -r ${DEST}/* ${DEST_BUILD}/
-          cd ${DEST_BUILD} && ls -al && ls -l public
-          hugo
+          cd ${DEST_BUILD} && ls -al
+          hugo && ls public
       - name: 🚀 Publish to remote repository
         run: cd ${DEST_BUILD} && hugo deploy --invalidateCDN --maxDeletes -1 --force
