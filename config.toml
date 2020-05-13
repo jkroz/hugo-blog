@@ -32,7 +32,7 @@ URL = "s3://jss4s.com-root?region=eu-west-1"
 
 # If you are using a CloudFront CDN, deploy will invalidate the cache as needed.
 #cloudFrontDistributionID = "E2NGU7W2YRZLRS"
-cloudFrontDistributionID = "E2QDENQWVD7O9T"
+cloudFrontDistributionID = "E3T2HYFXLMJFE4"
 
 # Optionally, you can include or exclude specific files.
 # See https://godoc.org/github.com/gobwas/glob#Glob for the glob pattern syntax.
