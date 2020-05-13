@@ -7,8 +7,10 @@ on:
 
 # Don't forget to set these!
 env:
+  HUGO_VERSION: "0.70.0"
   REMOTE: jkroz/hugo-blog.git
   DEST: public-temp
+  DEST_BUILD: temp
 
 jobs:
   build-and-deploy:
@@ -24,7 +26,6 @@ jobs:
           sudo apt install curl jq awscli
       - name: 🤵 Install Hugo version
         run: |
-          HUGO_VERSION="0.70.0"
           mkdir tmp/ && cd tmp/
           curl -sSL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz | tar -xvzf-
           sudo mv hugo /usr/local/bin/
@@ -38,7 +39,12 @@ jobs:
       - name: 👯 Clone remote repository
         run: git clone https://github.com/${REMOTE} ${DEST}
       - name: 🍳 Build site
-        run: hugo -d ${DEST}
+        run: |
+          mkdir ${DEST_BUILD}
+          hugo new site ${DEST_BUILD}
+          cp -r ${DEST}/* ${DEST_BUILD}
+          cd ${DEST_BUILD}
+          hugo
       - name: 🚀 Publish to remote repository
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
