@@ -40,10 +40,12 @@ jobs:
         run: cd && git clone https://github.com/${REMOTE} ${DEST}
       - name: 🍳 Build site
         run: |
-          mkdir ${DEST_BUILD}
+          cd && mkdir ${DEST_BUILD}
           hugo new site ${DEST_BUILD}
-          cp -r ${DEST}/* ${DEST_BUILD}
+          cp -r ${DEST}/* ${DEST_BUILD}/
           cd ${DEST_BUILD}
+          pwd
+          w
           hugo -v
       - name: 🚀 Publish to remote repository
         env:
