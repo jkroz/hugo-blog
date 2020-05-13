@@ -5,13 +5,14 @@
 
 
 provider "aws" {
-	alias                   = "virginia"
+		alias                   = "virginia"
   	version                 = "~> 2.0"
-	region                  = "us-east-1"
+		region                  = "us-east-1"
 }
 
 provider "aws" {
-	alias                   = "ireland"
+		alias                   = "ireland"
   	version                 = "~> 2.0"
-	region                  = "eu-west-1"
+		region                  = "eu-west-1"
+		shared_credentials_file = "~/.aws/credentials"
 }
