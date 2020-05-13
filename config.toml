@@ -1,4 +1,5 @@
-baseURL = "http://d31zq8bi6got13.cloudfront.net"
+#baseURL = "http://d31zq8bi6got13.cloudfront.net"
+baseURL = "http://d36f7emxotip36.cloudfront.net"
 languageCode = "en-us"
 title = "My IMS Site GITHUB ACTION"
 # theme = "ananke"
@@ -26,10 +27,12 @@ order = [".jpg$", ".gif$"]
 name = "mydeployment"
 # S3; see https://gocloud.dev/howto/blob/#s3
 # For S3-compatible endpoints, see https://gocloud.dev/howto/blob/#s3-compatible
-URL = "s3://jss3s?region=eu-west-1"
+#URL = "s3://jss3s?region=eu-west-1"
+URL = "s3://jss4s.com-root?region=eu-west-1"
 
 # If you are using a CloudFront CDN, deploy will invalidate the cache as needed.
-cloudFrontDistributionID = "E2NGU7W2YRZLRS"
+#cloudFrontDistributionID = "E2NGU7W2YRZLRS"
+cloudFrontDistributionID = "E2QDENQWVD7O9T"
 
 # Optionally, you can include or exclude specific files.
 # See https://godoc.org/github.com/gobwas/glob#Glob for the glob pattern syntax.
