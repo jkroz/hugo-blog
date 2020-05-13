@@ -1,9 +1,5 @@
 resource "aws_iam_user" "jsstest" {
   name = "jsstest"
-
-  tags = {
-    tag-key = "tag-value"
-  }
 }
 
 resource "aws_iam_access_key" "jsstest" {
@@ -19,10 +15,10 @@ resource "aws_iam_user_policy" "jsstest_ci" {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
+            "Sid": "AllowCreateInvalidateCDN",
             "Effect": "Allow",
             "Action": "cloudfront:CreateInvalidation",
-            "Resource": "arn:aws:cloudfront::448878779811:distribution/E2NGU7W2YRZLRS"
+            "Resource": "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.website_cdn_root.id}"
         }
     ]
 }

@@ -57,9 +57,14 @@ resource "aws_cloudfront_distribution" "website_cdn_root" {
   }
 
   viewer_certificate {
-		#jordan acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
-    ssl_support_method  = "sni-only"
+    cloudfront_default_certificate = true
   }
+
+#jordan
+#  viewer_certificate {
+#		acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
+#   ssl_support_method  = "sni-only"
+#  }
 
   custom_error_response {
     error_caching_min_ttl = 300
@@ -94,6 +99,7 @@ resource "aws_cloudfront_distribution" "website_cdn_root" {
 #  }
 #}
 
+
 # Creates policy to limit access to the S3 bucket to CloudFront Origin
 resource "aws_s3_bucket_policy" "update_website_root_bucket_policy" {
   bucket = aws_s3_bucket.website_root.id
@@ -122,7 +128,7 @@ resource "aws_s3_bucket_policy" "update_website_root_bucket_policy" {
 			"Sid": "PermissionForObjectOperations",
 			"Effect": "Allow",
 			"Principal": {
-				"AWS": "arn:aws:iam::448878779811:user/jsstest"
+				"AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/${aws_iam_access_key.jsstest.user}"
 			},
 			"Action": "s3:*Object",
 			"Resource": [
@@ -139,7 +145,7 @@ POLICY
 resource "aws_cloudfront_distribution" "website_cdn_redirect" {
   enabled     = true
   price_class = "PriceClass_All" # Select the correct PriceClass depending on who the CDN is supposed to serve (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html)
-  aliases     = [var.website-domain-redirect]
+	#aliases     = [var.website-domain-redirect]
 
   origin {
     origin_id   = "origin-bucket-${aws_s3_bucket.website_redirect.id}"
@@ -183,9 +189,13 @@ resource "aws_cloudfront_distribution" "website_cdn_redirect" {
   }
 
   viewer_certificate {
-		# jordan acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
-    ssl_support_method  = "sni-only"
+    cloudfront_default_certificate = true
   }
+# jordan
+#  viewer_certificate {
+#		acm_certificate_arn = data.aws_acm_certificate.wildcard_website.arn
+#   ssl_support_method  = "sni-only"
+#  }
 
   tags = {
     ManagedBy = "terraform"
