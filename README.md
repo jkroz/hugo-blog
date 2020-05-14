@@ -1,3 +1,5 @@
+![hugo-CI-remote](https://github.com/jkroz/hugo-blog/workflows/hugo-CI-remote/badge.svg?branch=master)
+
 # hugo-blog
 
 A hugo repo blog.
