@@ -5,10 +5,10 @@ on:
     branches:
       - master
     paths:
-      - 'contents/*'
-      - 'themes/*'
+      - 'contents/**'
+      - 'themes/**'
       - 'config.toml'
-      - 'archetypes/*'   
+      - 'archetypes/**'   
 
 # Don't forget to set these!
 env:
