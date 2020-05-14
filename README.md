@@ -7,7 +7,7 @@ A hugo repo blog.
 - Play the states in ./terraform folder.
 - Here we are serverless infra with:
   - CDN
-  - S3
+  - S3 (OAI used)
   - LAMBDA@EDGE
   - Optional : ACM / R53
 
