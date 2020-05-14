@@ -30,7 +30,10 @@ This Terraform module creates the following AWS resources:
 
 ```HCL
 
-ADD ENV var : export AWS_SDK_LOAD_CONFIG="true" to be able to assume a role from account themselve assumed by a other account.
+ADD ENV var : 
+export AWS_SDK_LOAD_CONFIG="true" to be able to assume a role from account themselve assumed by a other account.
+export AWS_PROFILE=""
+aws-google-auth xxx
 
 provider "aws" {
   version                 = "~> 2.0"
@@ -40,7 +43,7 @@ provider "aws" {
 provider "aws" {
   version                 = "~> 2.0"
   alias 		  = "virginia"
-  region                  = "us-east-1" # Mandatary for lambda@edge
+  region                  = "us-east-1" # Mandatory for lambda@edge
 }
 
 terraform.tfvars:
