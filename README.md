@@ -1,4 +1,5 @@
 ![hugo-CI-remote](https://github.com/jkroz/hugo-blog/workflows/hugo-CI-remote/badge.svg?branch=master)
+![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.12.0-blue.svg)
 
 # hugo-blog
 
