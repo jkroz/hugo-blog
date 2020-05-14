@@ -8,7 +8,7 @@ Terraform module which provision required AWS resources to host a performant and
 
 This Terraform module creates the following AWS resources:
 
-* **AWS Certificate Manager**: wildcard certificate for your domain.
+* **AWS Certificate Manager**: wildcard certificate for your domain. (NOT SET BY DEAFULT)
 * **S3**
   * Bucket #1: to store logs.
   * Bucket #2: to store the content (`example.com`).
@@ -17,29 +17,37 @@ This Terraform module creates the following AWS resources:
   * Distribution #1: to frontend the website.
   * Distribution #2: to frontend the subdomain that will be redirect to the main domain.
 * **Lambda@Edge** (triggered by the CloudFront Distribution) to re-write requests so that CloudFront requests a default index object (e.g., index.html) for subfolders.
-* **Route53** record sets pointing to the two CloudFront distributions.
+* **Route53** record sets pointing to the two CloudFront distributions. (NOT SET BY DEFAULT)
 
 ## Requirements
 
 * This module is meant for use with [Terraform](https://www.terraform.io/downloads.html) 0.12+. It has not been tested with previous versions of Terraform.
-* An AWS account and your credentials (`aws_access_key_id` and `aws_secret_access_key`) configured. There are several ways to do this (environment variables, shared credentials file, etc.): my preference is to store them in a [credential file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html). More information in the [AWS Provider](https://www.terraform.io/docs/providers/aws/index.html) documentation.
-* Your domain already configured as a hosted zone on Route53.
+* An AWS account and your credentials (`aws_access_key_id` and `aws_secret_access_key`) configured. There are several ways to do this (environment variables, shared credentials file, etc.).
+
+* Your domain already configured as a hosted zone on Route53. (NOT NEEDED BY DEFAULT)
 
 ## Usage
 
 ```HCL
+
+ADD ENV var : export AWS_SDK_LOAD_CONFIG="true" to be able to assume a role from account themselve assumed by a other account.
+
 provider "aws" {
   version                 = "~> 2.0"
-  region                  = "eu-west-3"
-  shared_credentials_file = "~/.aws/credentials"
+  region                  = "eu-west-1"
 }
 
-module "aws_static_website" {
-  source = "cloudmaniac/static-website/aws"
+provider "aws" {
+  version                 = "~> 2.0"
+  alias 		  = "virginia"
+  region                  = "us-east-1" # Mandatary for lambda@edge
+}
+
+terraform.tfvars:
 
   website-domain-main     = "example.com"
   website-domain-redirect = "www.example.com"
-}
+
 ```
 
 Although AWS services are available in many locations, some of them require the `us-east-1` (N. Virginia) region to be configured:
@@ -60,4 +68,8 @@ For those reasons, the module includes an aliased provider definition to create 
 
 | Name | Description |
 |------|-------------|
-| website_cdn_root_id | CloudFront Distribution ID |
+|CDN_ROOT_DOMAIN_ID | CDN Domain URL |
+|CDN_ROOT_ID | CDN Distribution ID |
+|IAM_AK | Access Key for user CI |
+|IAM_SK | Secret Key for user CI |
+|OAI_ROOT | Origin Access Identity CDN |

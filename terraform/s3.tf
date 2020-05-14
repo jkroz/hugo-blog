@@ -29,10 +29,10 @@ resource "aws_s3_bucket" "website_root" {
     target_prefix = "${var.website-domain-main}/"
   }
 
-  website {
-    index_document = "index.html"
-    error_document = "404.html"
-  }
+#  website {
+#    index_document = "index.html"
+#    error_document = "404.html"
+#  }
 
   tags = {
     ManagedBy = "terraform"
