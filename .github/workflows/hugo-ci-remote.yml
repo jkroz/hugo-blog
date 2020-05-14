@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'contents/**'
-      - 'themes/**'
-      - 'config.toml'
-      - 'archetypes/**'   
+      paths:
+        - 'contents/**'
+        - 'themes/**'
+        - 'config.toml'
+        - 'archetypes/**'   
 
 # Don't forget to set these!
 env:
